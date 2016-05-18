@@ -1,17 +1,17 @@
 (function () {
-  if (typeof Bomberman === "undefined") {
-    window.Bomberman = {};
+  if (typeof Reaction === "undefined") {
+    window.Reaction = {};
   }
 
-  var Barrier = Bomberman.Barrier = function (attributes) {
+  var Barrier = Reaction.Barrier = function (attributes) {
     this.game = attributes.game,
     this.pos = attributes.pos,
     this.color = Barrier.COLOR;
     this.length = Barrier.LENGTH;
     this.location = [254, 101];
-    this.sprite = new Bomberman.Sprite({img: 'sprites/bomberman.png', loc: [this.location], size: [23,22]})
+    this.sprite = new Reaction.Sprite({img: 'sprites/bomberman.png', loc: [this.location], size: [23,22]})
 
-    // Bomberman.StaticObject.call(this, attributes);
+    // Reaction.StaticObject.call(this, attributes);
   };
 
   Barrier.COLOR = "black";
@@ -31,11 +31,11 @@
 
   };
 
-  // Bomberman.Util.inherits(Bomberman.Barrier, Bomberman.StaticObject);
+  // Reaction.Util.inherits(Reaction.Barrier, Reaction.StaticObject);
 
   //
   // StaticObject.prototype.isCollidedWith = function (otherObject) {
-  //   var distance = Bomberman.Util.distance(this, otherObject);
+  //   var distance = Reaction.Util.distance(this, otherObject);
   //   var radiusSum = this.radius + otherObject.radius;
   //   return radiusSum > distance;
   // };

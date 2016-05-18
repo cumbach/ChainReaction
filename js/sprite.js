@@ -1,8 +1,8 @@
 (function() {
-  if (typeof Bomberman === 'undefined')
-    window.Bomberman = {};
+  if (typeof Reaction === 'undefined')
+    window.Reaction = {};
 
-  var Sprite = Bomberman.Sprite = function(attributes) {
+  var Sprite = Reaction.Sprite = function(attributes) {
     this.loc = attributes.loc;
     this.size = attributes.size;
     // this.speed = speed;
@@ -14,6 +14,7 @@
   }
 
   Sprite.prototype.draw = function (ctx, pos, location) {
+    debugger;
     if (typeof location === 'undefined') {
       ctx.drawImage(resources.get(this.img), this.loc[0], this.loc[1], this.size[0],this.size[1], pos[0], pos[1], this.area[0], this.area[1]);
     } else {

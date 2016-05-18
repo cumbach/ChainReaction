@@ -7,12 +7,29 @@
     this.ctx = canvas.getContext('2d');
     this.xDim = canvas.width;
     this.yDim = canvas.height;
-    this.bomber = new Reaction.Bomber({vel: [0, 0], pos: [25, 25], game: this});
-    this.addBlocks();
-    this.addBarriers();
-    this.addEnemies();
     this.loadImgs();
-    this.playing = false;
+    
+    // this.bomber = new Reaction.Bomber({vel: [0, 0], pos: [25, 25], game: this});
+    this.addBalls();
+    // this.addBarriers();
+    // this.addEnemies();
+    // this.playing = false;
+  };
+
+  Game.prototype.addBalls = function() {
+    this.barriers = [];
+    var pos;
+    var barrier;
+
+    var barrierLength = Reaction.Barrier.LENGTH;
+
+    for (var x = barrierLength; x < this.xDim; x+=2 * barrierLength) {
+      for (var y = barrierLength; y < this.yDim; y+=2 * barrierLength) {
+          pos = [x, y];
+          barrier = new Reaction.Barrier({ pos: pos, game: this });
+          this.barriers.push(barrier);
+      }
+    }
   };
 
   Game.prototype.loadImgs = function () {
@@ -37,85 +54,62 @@
   //     game: this
   //   });
   // };
-  Game.prototype.addEnemies = function() {
-    this.enemies = [];
-    var pos;
-    var block;
-    var enemyCount = 8;
+  // Game.prototype.addEnemies = function() {
+  //   this.enemies = [];
+  //   var pos;
+  //   var block;
+  //   var enemyCount = 8;
+  //
+  //   // barrier = new Reaction.Barrier({pos: [150,50], game: this});
+  //   // this.barriers.push(barrier);
+  //
+  //   barrierPositions = this.barriers.map(function(barrier){
+  //     return barrier.pos.toString();
+  //   });
+  //   blockPositions = this.blocks.map(function(block){
+  //     return block.pos.toString();
+  //   })
+  //
+  //   var blockLength = Reaction.Barrier.LENGTH;
+  //
+  //   for (var x = 0; x < this.xDim; x += blockLength) {
+  //     for (var y = 0; y < this.yDim; y += blockLength) {
+  //       if (this.enemies.length < enemyCount && Math.random() < 0.10 && (x > 3*blockLength || y > 3*blockLength)) {
+  //         pos = [x, y];
+  //         if (barrierPositions.indexOf(pos.toString()) === -1 && blockPositions.indexOf(pos.toString()) === -1) {
+  //           enemy = new Reaction.Enemy({ pos: pos, game: this });
+  //           this.enemies.push(enemy);
+  //         }
+  //       }
+  //     }
+  //   }
+  // };
+  // Game.prototype.addBlocks = function() {
+  //   this.blocks = [];
+  //   var pos;
+  //   var block;
+  //
+  //   // barrier = new Reaction.Barrier({pos: [150,50], game: this});
+  //   // this.barriers.push(barrier);
+  //
+  //   var blockLength = Reaction.Barrier.LENGTH;
+  //
+  //   for (var x = 0; x < this.xDim; x += blockLength) {
+  //     for (var y = 0; y < this.yDim; y += blockLength) {
+  //       if (Math.random() < 0.18 && (x > 3*blockLength || y > blockLength)) {
+  //         pos = [x, y];
+  //         block = new Reaction.Block({ pos: pos, game: this });
+  //         this.blocks.push(block);
+  //
+  //       }
+  //       // if (x % (barrierLength * 2) === 0 && y % (barrierLength * 2) === 0) {
+  //         // debugger;
+  //       // }
+  //     }
+  //   }
+  //
+  // };
 
-    // barrier = new Reaction.Barrier({pos: [150,50], game: this});
-    // this.barriers.push(barrier);
-
-    barrierPositions = this.barriers.map(function(barrier){
-      return barrier.pos.toString();
-    });
-    blockPositions = this.blocks.map(function(block){
-      return block.pos.toString();
-    })
-
-    var blockLength = Reaction.Barrier.LENGTH;
-
-    for (var x = 0; x < this.xDim; x += blockLength) {
-      for (var y = 0; y < this.yDim; y += blockLength) {
-        if (this.enemies.length < enemyCount && Math.random() < 0.10 && (x > 3*blockLength || y > 3*blockLength)) {
-          pos = [x, y];
-          if (barrierPositions.indexOf(pos.toString()) === -1 && blockPositions.indexOf(pos.toString()) === -1) {
-            enemy = new Reaction.Enemy({ pos: pos, game: this });
-            this.enemies.push(enemy);
-          }
-        }
-      }
-    }
-  };
-  Game.prototype.addBlocks = function() {
-    this.blocks = [];
-    var pos;
-    var block;
-
-    // barrier = new Reaction.Barrier({pos: [150,50], game: this});
-    // this.barriers.push(barrier);
-
-    var blockLength = Reaction.Barrier.LENGTH;
-
-    for (var x = 0; x < this.xDim; x += blockLength) {
-      for (var y = 0; y < this.yDim; y += blockLength) {
-        if (Math.random() < 0.18 && (x > 3*blockLength || y > blockLength)) {
-          pos = [x, y];
-          block = new Reaction.Block({ pos: pos, game: this });
-          this.blocks.push(block);
-
-        }
-        // if (x % (barrierLength * 2) === 0 && y % (barrierLength * 2) === 0) {
-          // debugger;
-        // }
-      }
-    }
-
-  };
-  Game.prototype.addBarriers = function() {
-    this.barriers = [];
-    var pos;
-    var barrier;
-
-    // barrier = new Reaction.Barrier({pos: [150,50], game: this});
-    // this.barriers.push(barrier);
-
-    var barrierLength = Reaction.Barrier.LENGTH;
-
-    for (var x = barrierLength; x < this.xDim; x+=2 * barrierLength) {
-      for (var y = barrierLength; y < this.yDim; y+=2 * barrierLength) {
-        // if (x % (barrierLength * 2) === 0 && y % (barrierLength * 2) === 0) {
-          // debugger;
-          pos = [x, y];
-          barrier = new Reaction.Barrier({ pos: pos, game: this });
-          this.barriers.push(barrier);
-        // }
-      }
-    }
-    // this.barriers.forEach(function (barrier) {
-    //   barrier.draw(this.ctx);
-    // }.bind(this));
-  };
 
   // Game.prototype.setup = function (ctx) {
   //   ctx.clearRect(0, 0, this.xDim, this.yDim);
@@ -132,24 +126,24 @@
 
     ctx.fillRect(0, 0, this.xDim,this.yDim);
 
-    this.blocks.forEach(function (block) {
-      block.draw(ctx);
-    });
+    // this.blocks.forEach(function (block) {
+    //   block.draw(ctx);
+    // });
 
     this.barriers.forEach(function (barrier) {
       barrier.draw(ctx);
     });
 
-
-    this.bomber.bombs.forEach(function(bomb){
-      bomb.draw(ctx);
-    });
-
-    this.enemies.forEach(function(enemy){
-      enemy.draw(ctx);
-    });
-
-    this.bomber.draw(ctx);
+    //
+    // this.bomber.bombs.forEach(function(bomb){
+    //   bomb.draw(ctx);
+    // });
+    //
+    // this.enemies.forEach(function(enemy){
+    //   enemy.draw(ctx);
+    // });
+    //
+    // this.bomber.draw(ctx);
     // this.bomber.sprite.draw(ctx);
   };
   //
