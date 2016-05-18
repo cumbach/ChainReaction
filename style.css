@@ -1,0 +1,144 @@
+canvas {
+  border: 10px solid rgba(200,200,200,.5);
+  background: black;
+  float: left;
+  margin-top: 150px;
+
+}
+
+.canvas-div {
+  width: 650px;
+  height: 750px;
+  margin-top: 100px;
+  margin: auto;
+}
+
+.instructions {
+  margin-top: -350px;
+  position: fixed;
+  width: 100%;
+
+}
+
+.welcome {
+  left: 10px;
+  bottom: 590px;
+  margin: 0 auto;
+  position: relative;
+  width: 650px;
+  background: black;
+}
+
+IMG {
+  width: 650px;
+  height: 550px;
+}
+
+/*.hello {
+  background: black;
+}*/
+
+h2 {
+  width: 168px;
+  padding: 23px;
+  margin: auto;
+  border-radius: 10px;
+  background: black;
+  color: rgba(700,200,0,1);
+  text-align: center;
+}
+
+body {
+  background: url(assets/bomberwallpaper.png);
+  height: 99%;
+  width: 99%;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+
+
+
+/*
+.logo {
+    width: 300px;
+    height: 100px;
+    margin-left: 210px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.info-pane {
+  width: 200px;
+  height: 600px;
+  background: black;
+  float: right;
+  border: 1px solid #999;
+
+}
+
+
+
+.score {
+  height: 50px;
+  width: 150px;
+  margin-top: 20px;
+  float: right;
+  background: white;
+  border-radius: 5px;
+  margin-right: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.next-piece {
+  height: 150px;
+  width: 150px;
+  float: right;
+  background: white;
+  border-radius: 5px;
+  margin-top: 50px;
+  margin-right: 20px;
+}
+
+h2 {
+  /*position: fixed;
+  background: rgba(200,200,200,.7);
+  padding: 20px;
+  margin-left: 60px;
+  margin-top: 100px;
+  width: 150px;
+  text-align: center;*/
+}
+
+.controls {
+  height: 150px;
+  width: 200px;
+  float: right;
+  background: black;
+  margin-top: 50px;
+  /*background-image: url(assets/arrow-keys.jpg);*/
+  background-position: center;
+  overflow: hidden;
+}
+
+.new-game {
+  height: 50px;
+  width: 150px;
+  float: right;
+  background: white;
+  border-radius: 5px;
+  margin-top: 50px;
+  margin-right: 20px;
+  border: 1px solid black;
+}
+
+.new-game h3 {
+  margin-left: 30px;
+  margin-top: 12px;
+}
+
+.new-game:hover {
+  background: #ddd;
+}*/

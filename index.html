@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Bomberman</title>
+    <link rel='stylesheet' href='style.css' />
+  </head>
+
+  <body>
+    <div class="canvas-div">
+      <canvas width="650" height="550"></canvas>
+    </div>
+    <div class="instructions"></div>
+    <div class="welcome"></div>
+
+    <script type="application/javascript" src="js/input.js"></script>
+    <script type="application/javascript" src="js/resources.js"></script>
+    <script type="application/javascript" src="js/sprite.js"></script>
+    <script type="application/javascript" src="js/utils.js"></script>
+    <script type="application/javascript" src="js/bomb.js"></script>
+    <script type="application/javascript" src="js/bomber.js"></script>
+    <script type="application/javascript" src="js/block.js"></script>
+    <script type="application/javascript" src="js/barrier.js"></script>
+    <script type="application/javascript" src="js/enemy.js"></script>
+    <script type="application/javascript" src="js/game.js"></script>
+    <script type="application/javascript" src="js/gameView.js"></script>
+    <script type="application/javascript">
+        var canvasEl = document.getElementsByTagName("canvas")[0];
+        new Reaction.GameView(
+          canvasEl
+        ).start(canvasEl);
+    </script>
+  </body>
+</html>
